@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR - Clothing Store</title>
+        
+    <style>
+        /* Basic Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #ff7e5f;
+            color: #fff;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 40px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #444;
+        }
+        
+        #home {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 60px;
+            border-radius: 8px;
+        }
+        
+        #products {
+            background: linear-gradient(135deg, #f7b42c, #fc575e);
+            color: white;
+            border-radius: 8px;
+        }
+
+        #about {
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            color: white;
+            border-radius: 8px;
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* Product Container */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .product {
+            width: 200px;
+            text-align: center;
+            margin: 20px;
+            transition: transform 0.3s;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product:hover {
+            transform: scale(1.05);
+        }
+        
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .product img:hover {
+            transform: scale(1.1);
+        }
+        
+        .product button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .product button:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        /* Cart Display */
+        #cart-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Cart Information --> 
+    <div id="cart-info">
+        Cart: <span id="cart-count">0</span> items - Total: $<span id="cart-total">0.00</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>NOIR</h1>
+        <p>Your Destination for Premium Clothing</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Latest Collection</h2>
+        <p>Check out our latest clothing items!</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Products</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://www.beyours.in/cdn/shop/files/classic-shirt-black-4.jpg?v=1711094660" alt="Classic Shirt">
+                <p>Classic Shirt - $29.99</p>
+                <button onclick="addToCart('Classic Shirt', 29.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebWzkq3XLZ_lN7sVBiYVGVZECzqC1GEmkSQ&s" alt="Comfort Jeans">
+                <p>Comfort Jeans - $49.99</p>
+                <button onclick="addToCart('Comfort Jeans', 49.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-LSfwT7C5WvlTJycAwUZrL9MR8-5RdzTFUA&s" alt="White Tee">
+                <p>White Tee - $19.99</p>
+                <button onclick="addToCart('White Tee', 19.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRegOp9yUYfZCBvIzWr5N4Oi8D2Ff5rkWM6oA&s" alt="Denim Jacket">
+                <p>Denim Jacket - $59.99</p>
+                <button onclick="addToCart('Denim Jacket', 59.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY1IYoomV391FUdIEDTa8Iq0fsG2sSFPHtdg&s" alt="Casual Shorts">
+                <p>Casual Shorts - $24.99</p>
+                <button onclick="addToCart('Casual Shorts', 24.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcx45F3F-fPK7unUO-khE1TErtxrga_UwlYg&s" alt="Pullover Sweater">
+                <p>Pullover Sweater - $39.99</p>
+                <button onclick="addToCart('Pullover Sweater', 39.99)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We offer the best clothing collection for all seasons.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="submit-form" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 NOIR Clothing Store</p>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+        let cartTotal = 0;
+
+        function addToCart(productName, price) {
+            cartCount++;
+            cartTotal += price;
+
+            document.getElementById("cart-count").innerText = cartCount;
+            document.getElementById("cart-total").innerText = cartTotal.toFixed(2);
+
+            alert(productName + " has been added to your cart at $" + price.toFixed(2) + "!");
+        }
+    </script>
+</body>
+</html>
